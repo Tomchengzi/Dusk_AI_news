@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>效率工具大师课</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./src/style/main.css">
+    <style>
+        /* 专业工具风格 */
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 8px 30px rgba(0,87,255,0.1);
+            border-radius: 12px;
+        }
+
+        /* 科技感按钮 */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 6px rgba(0,123,255,0.2);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(59,130,246,0.25);
+        }
+
+        /* 标题系统 */
+        h1 {
+            color: #2563eb;
+            text-align: center;
+            margin: 0 0 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(59,130,246,0.2);
+            position: relative;
+            font-size: 2.2em;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #3b82f6;
+        }
+
+        /* 工具卡片系统 */
+        .tool-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .tool-card h2 {
+            margin: 0 0 20px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.5em;
+        }
+
+        .tool-card h2 i {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8em;
+        }
+
+        /* 工具专属配色 */
+        .cursor-card { border-color: #3b82f6; }
+        .trae-card { border-color: #10b981; }
+        .doubao-card { border-color: #f59e0b; }
+        .deepseek-card { border-color: #8b5cf6; }
+
+        /* 功能列表 */
+        .feature-list li {
+            padding: 12px;
+            margin: 10px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* 图片增强 */
+        .tool-screenshot {
+            width: 100%;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tool-screenshot:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            返回首页
+        </a>
+
+        <h1>效率工具大师课</h1>
+
+        <!-- Cursor 卡片 -->
+        <div class="tool-card cursor-card">
+            <h2>
+                <i class="fas fa-code"></i>
+                Cursor 智能编程
+            </h2>
+            <img src="../img/cursor_stack.jpg" alt="Cursor界面" class="tool-screenshot">
+            <ul class="feature-list">
+                <li>
+                    <i class="fas fa-magic" style="color: #3b82f6;"></i>
+                    <strong>智能补全：</strong>基于GPT-4的上下文感知代码建议
+                </li>
+                <li>
+                    <i class="fas fa-project-diagram" style="color: #3b82f6;"></i>
+                    <strong>代码导航：</strong>Ctrl+Click快速跳转定义/引用
+                </li>
+                <li>
+                    <i class="fas fa-keyboard" style="color: #3b82f6;"></i>
+                    <strong>快捷键方案：</strong>
+                    <kbd>Ctrl+Shift+R</kbd>重构代码｜
+                    <kbd>Alt+Enter</kbd>快速修复
+                </li>
+                <li>
+                    <i class="fas fa-cube" style="color: #3b82f6;"></i>
+                    <strong>片段管理：</strong>支持Markdown语法文档化代码模板
+                </li>
+            </ul>
+        </div>
+
+        <!-- Trae 卡片 -->
+        <div class="tool-card trae-card">
+            <h2>
+                <i class="fas fa-tasks"></i>
+                Trae 项目管理
+            </h2>
+            <ul class="feature-list">
+                <li>
+                    <i class="fas fa-sitemap" style="color: #10b981;"></i>
+                    <strong>看板视图：</strong>支持Scrum敏捷开发工作流
+                </li>
+                <li>
+                    <i class="fas fa-users" style="color: #10b981;"></i>
+                    <strong>团队协同：</strong>实时评论+@mention通知机制
+                </li>
+                <li>
+                    <i class="fas fa-chart-line" style="color: #10b981;"></i>
+                    <strong>进度追踪：</strong>自动生成燃尽图与资源负载报告
+                </li>
+            </ul>
+        </div>
+
+        <!-- 豆包 卡片 -->
+        <div class="tool-card doubao-card">
+            <h2>
+                <i class="fas fa-robot"></i>
+                豆包智能问答
+            </h2>
+            <ul class="feature-list">
+                <li>
+                    <i class="fas fa-comment-dots" style="color: #f59e0b;"></i>
+                    <strong>精准提问：</strong>使用【背景+需求+约束】结构化模版
+                </li>
+                <li>
+                    <i class="fas fa-sync-alt" style="color: #f59e0b;"></i>
+                    <strong>对话管理：</strong>/reset清空上下文｜/export导出对话记录
+                </li>
+                <li>
+                    <i class="fas fa-cogs" style="color: #f59e0b;"></i>
+                    <strong>高级配置：</strong>调节temperature参数控制回答创造性
+                </li>
+            </ul>
+        </div>
+
+        <!-- DeepSeek 卡片 -->
+        <div class="tool-card deepseek-card">
+            <h2>
+                <i class="fas fa-brain"></i>
+                DeepSeek 调参指南
+            </h2>
+            <ul class="feature-list">
+                <li>
+                    <i class="fas fa-sliders-h" style="color: #8b5cf6;"></i>
+                    <strong>风格控制：</strong>添加【formal】/【humorous】前缀指令
+                </li>
+                <li>
+                    <i class="fas fa-ruler" style="color: #8b5cf6;"></i>
+                    <strong>长度限制：</strong>max_tokens=500避免冗余输出
+                </li>
+                <li>
+                    <i class="fas fa-lightbulb" style="color: #8b5cf6;"></i>
+                    <strong>行业模版：</strong>使用!legal / !medical触发专业领域模式
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

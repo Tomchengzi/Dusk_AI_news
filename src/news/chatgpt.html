@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT最新动态</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./src/style/main.css">
+    <style>
+        /* 增强型基础样式 */
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 6px rgba(0,123,255,0.2);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,123,255,0.25);
+        }
+
+        /* 标题系统升级 */
+        h1 {
+            color: #007BFF;
+            text-align: center;
+            margin: 0 0 30px 0;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(0,123,255,0.2);
+            font-size: 2.4em;
+            position: relative;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: #007BFF;
+        }
+
+        h2 {
+            color: #2d2d2d;
+            margin: 40px 0 25px;
+            padding-left: 20px;
+            border-left: 4px solid #4CAF50;
+            font-size: 1.6em;
+        }
+
+        /* 内容区块优化 */
+        p {
+            line-height: 1.85;
+            margin: 0 0 20px;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #e3f2fd 0%, #f8f9fa 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #2196F3;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        /* 特性图标系统 */
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #007BFF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -10px 15px 20px 0;
+            float: left;
+        }
+
+        /* 警示区块 */
+        .warning-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #FFA726;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            返回首页
+        </a>
+
+        <h1>ChatGPT 最新动态</h1>
+
+        <div class="highlight">
+            <div class="feature-icon">
+                <i class="fas fa-video" style="color: #fff; font-size: 1.4em;"></i>
+            </div>
+            <h2>多模态能力升级</h2>
+            <p>ChatGPT-5进行了革命性的多模态升级，现已支持：</p>
+            <p>🎬 <strong>智能视频生成：</strong>通过自然语言描述即可生成1080P高清视频内容，支持自动场景分割与动态转场效果</p>
+            <p>🗣️ <strong>实时语音交互：</strong>响应速度提升至200ms内，支持情感语调识别与多语种实时互译</p>
+            <img src="../img/Chatgpt.jpg" alt="视频生成示例" loading="lazy">
+        </div>
+
+        <div class="highlight" style="border-color: #4CAF50;">
+            <div class="feature-icon" style="background: #4CAF50;">
+                <i class="fas fa-chart-line" style="color: #fff;"></i>
+            </div>
+            <h2>API成本优化</h2>
+            <p>OpenAI宣布重大价格调整：</p>
+            <p>📉 <strong>成本降低40%：</strong>全新计费模型支持按需动态调配计算资源</p>
+            <p>🚀 <strong>开发者计划升级：</strong>每月免费额度提升至50,000 tokens，新增批量处理优惠</p>
+        </div>
+
+        <div class="warning-box">
+            <h2 style="color: #FFA726; border-color: #FFA726;">
+                <i class="fas fa-exclamation-triangle"></i>
+                潜在挑战
+            </h2>
+            <p>🔍 <strong>内容审核机制：</strong>视频生成功能需强化深度伪造检测体系</p>
+            <p>🛡️ <strong>隐私保护升级：</strong>语音交互数据采用端到端加密传输</p>
+            <p>⚖️ <strong>伦理规范：</strong>建立AI生成内容溯源标识系统</p>
+        </div>
+    </div>
+</body>
+</html>

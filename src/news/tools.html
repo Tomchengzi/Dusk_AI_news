@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI高效提问指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 统一基础样式 */
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 6px rgba(0,123,255,0.2);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+
+        /* 标题系统优化 */
+        h1 {
+            color: #007BFF;
+            text-align: center;
+            margin: 0 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #007BFF;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: #007BFF;
+            margin: 35px 0 20px;
+            padding-left: 15px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        /* 内容区块增强 */
+        .tip-box {
+            background: #f8f9fa;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+            box-shadow: inset 4px 0 0 #2196F3;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: Monaco, Consolas;
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* 表格样式升级 */
+        .tool-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .tool-table td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        /* 图片响应式优化 */
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 徽章样式增强 */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 8px 0;
+        }
+
+        .example-bad {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
+        .example-good {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            返回首页
+        </a>
+        
+        <h1>AI时代必备技能：如何向ChatGPT/Kimi/豆包高效提问？</h1>
+        <p style="color: #666; font-size: 0.95em; text-align: center;">作者：Redusk ｜ 发布日期：2025年2月</p>
+
+        <img src="../img/Chatgpt.jpg" alt="AI对话场景">
+
+        <div class="tip-box">
+            <i class="fas fa-lightbulb" style="color: #FFC107; margin-right: 10px;"></i>
+            <strong>核心原则：</strong>清晰的问题拆解 + 精准的上下文锚定 + 持续的多轮优化
+        </div>
+
+        <h2>一、通用提问公式</h2>
+        <h3>1. 精准目标拆解</h3>
+        <p><span class="badge example-bad">✘ 错误示范</span><br>
+        "帮我写个程序"</p>
+        
+        <p><span class="badge example-good">✓ 正确示范</span><br>
+        "用Python编写爬虫脚本，提取豆瓣Top250电影的中英文名、评分和短评链接，数据保存为CSV格式"</p>
+
+        <h3>2. 上下文植入技巧</h3>
+        <div class="code-block">
+            <i class="fas fa-code" style="color: #007BFF; margin-right: 10px;"></i>
+            // 技术栈说明示例：<br>
+            "使用React 18+TypeScript开发电商后台，需要实现JWT鉴权中间件"
+        </div>
+
+        <h2>二、工具专属秘籍</h2>
+        <table class="tool-table">
+            <tr>
+                <td style="background:#E3F2FD; width: 180px;">
+                    <i class="fas fa-laptop-code"></i> Cursor/DeepSeek
+                </td>
+                <td>代码级追问："第32行出现维度错误，输入shape=(None,256,256,3)，目标shape应如何计算？"</td>
+            </tr>
+            <tr>
+                <td style="background:#E8F5E9;">
+                    <i class="fas fa-file-alt"></i> Kimi/豆包
+                </td>
+                <td>文档处理："将50页PDF中的临床试验数据按实验组/对照组分类制成对比表格"</td>
+            </tr>
+        </table>
+
+        <h2>三、高阶组合技</h2>
+        <div class="tip-box" style="background:#FFF3E0; border-color:#FFA726;">
+            <i class="fas fa-rocket" style="color: #FFA726; margin-right: 10px;"></i>
+            <strong>跨工具工作流：</strong><br>
+            1. ChatGPT生成方案 → 2. Cursor写代码 → 3. Kimi分析日志 → 4. 豆包生成报告
+        </div>
+
+        <h2>四、风险规避指南</h2>
+        <p><i class="fas fa-shield-alt" style="color: #4CAF50; margin-right: 10px;"></i>
+        "设计医疗问诊系统时，如何处理HIPAA合规要求（无需透露具体患者数据）"</p>
+    </div>
+</body>
+</html>
