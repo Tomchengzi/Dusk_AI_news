@@ -373,11 +373,24 @@ body {
         order: 3;
         width: 100%;
     }
+
+    /* 优化移动端菜单图标样式 */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
     .logo-text {
         display: none;
+    }
+
+    /* 调整新闻卡片布局 */
+    .news-grid {
+        grid-template-columns: 1fr;
     }
 }
 
