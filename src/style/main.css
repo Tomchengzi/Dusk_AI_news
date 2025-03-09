@@ -340,7 +340,7 @@ body {
     color: #94a3b8;
 }
 
-/* 响应式设计 */
+/* 响应式设计，添加更多移动端样式调整 */
 @media (max-width: 1024px) {
     .main-container {
         grid-template-columns: 1fr;
@@ -381,6 +381,22 @@ body {
         color: white;
         font-size: 1.5rem;
     }
+
+    /* 调整导航链接样式，确保在移动端正确显示 */
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -394,7 +410,14 @@ body {
     }
 }
 
-/* 图片链接样式 */
+/* 图片懒加载样式 */
+img {
+    max-width: 100%;
+    height: auto;
+    /* 图片懒加载 */
+    loading: lazy; 
+}
+
 .news-card a {
     display: block;
     position: relative;
