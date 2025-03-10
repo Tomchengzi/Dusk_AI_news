@@ -1,4 +1,4 @@
-// script.js
+// main.js
 document.addEventListener('DOMContentLoaded', () => {
     // 新闻数据
     const aiNewsData = [
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excerpt: "DeepSeek从入门到精通 -- 清华大学出版",
             image: "src/img/deepseek3.jpg",
             tag: "职业发展",
-            url: "src/img/DeepSeek从入门到精通 -- 清华大学出版.pdf"
+            url: "./src/img/DeepSeek从入门到精通 -- 清华大学出版.pdf"
         }
     ];
 
@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderNews() {
         renderColumn('ai-news', aiNewsData);
         renderColumn('human-news', humanNewsData);
+        initSearchFeedback();
     }
+
     function renderColumn(containerId, data) {
         const container = document.getElementById(containerId);
         data.forEach(item => {
@@ -59,36 +61,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 搜索功能
-    const searchInput = document.querySelector('.search-input');
-    // 监听 input 事件
-    searchInput.addEventListener('input', debounce(searchHandler, 300));
-    // 监听 keydown 事件
-    searchInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            searchHandler.call(this);
-        }
-    });
-
+    // 搜索功能实现
     function searchHandler() {
-        const query = this.value.toLowerCase();
-        document.querySelectorAll('.news-card').forEach(card => {
-            const text = card.innerText.toLowerCase();
-            card.style.display = text.includes(query) ? 'block' : 'none';
+        const query = this.value.trim().toLowerCase();
+        const cards = document.querySelectorAll('.news-card');
+        let hasResults = false;
+
+        cards.forEach(card => {
+            const searchContent = [
+                card.querySelector('h3').innerText,
+                card.querySelector('p').innerText,
+                card.querySelector('.card-tag').innerText,
+                card.querySelector('img').getAttribute('alt')
+            ].join(' ').toLowerCase();
+
+            const isVisible = searchContent.includes(query);
+            card.style.display = isVisible ? 'block' : 'none';
+            card.classList.toggle('no-match', !isVisible);
+            
+            if (isVisible) hasResults = true;
         });
+
+        const noResults = document.getElementById('no-results');
+        if (noResults) {
+            noResults.style.display = hasResults ? 'none' : 'block';
+        }
     }
 
-    // 移动端菜单切换
-    const menuToggle = document.createElement('div');
-    menuToggle.className = 'menu-toggle';
-    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    document.querySelector('.header').appendChild(menuToggle);
+    // 初始化搜索反馈
+    function initSearchFeedback() {
+        const feedback = document.createElement('div');
+        feedback.id = 'no-results';
+        feedback.style.display = 'none';
+        feedback.innerHTML = `
+            <div class="no-results-card">
+                <i class="fas fa-search-minus"></i>
+                <p>没有找到匹配的结果，请尝试其他关键词</p>
+            </div>
+        `;
+        document.querySelector('.content-area').appendChild(feedback);
+    }
 
+    // 事件监听器
+    const searchInput = document.querySelector('.search-input');
+    searchInput.addEventListener('input', debounce(searchHandler.bind(searchInput), 300));
+    searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') searchHandler.call(this);
+    });
+
+    // 移动端菜单切换
+    const menuToggle = document.querySelector('.menu-toggle');
     menuToggle.addEventListener('click', () => {
         document.querySelector('.sidebar').classList.toggle('active');
     });
 
-    // 工具函数
+    // 防抖函数
     function debounce(func, wait) {
         let timeout;
         return (...args) => {
@@ -97,10 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // 初始化
-    renderNews();
-
-    // 弹窗函数
+    // 弹窗功能
     function openModal(modalId) {
         document.getElementById(modalId).style.display = "block";
     }
@@ -109,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(modalId).style.display = "none";
     }
 
-    // 为关闭按钮添加点击事件
+    // 关闭按钮事件
     const closeButtons = document.querySelectorAll('.close');
     closeButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -118,7 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 暴露函数到全局作用域
+    // 全局暴露
     window.openModal = openModal;
     window.closeModal = closeModal;
+
+    // 初始化
+    renderNews();
 });
